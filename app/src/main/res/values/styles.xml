@@ -17,4 +17,15 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Text">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:padding">@dimen/spacing_small</item>
+        <item name="android:textSize">@dimen/text_normal_size</item>
+    </style>
+
+    <style name="Text.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">@dimen/spacing_medium</item>
+    </style>
+
 </resources>
