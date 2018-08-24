@@ -1,0 +1,74 @@
+{
+"game_id_1":
+{
+"game" : "game_name_1",
+"payoff" : 40,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_1",
+"status" : "FINISHED"
+},
+"game_id_2":
+{
+"game" : "game_name_2",
+"payoff" : 50,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_2",
+"status" : "FINISHED"
+},
+"game_id_3":
+{
+"game" : "game_name_3",
+"payoff" : 1200,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_3",
+"status" : "FINISHED"
+},
+"game_id_4":
+{
+"game" : "game_name_4",
+"payoff" : 650,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_4",
+"status" : "FINISHED"
+},
+"game_id_5":
+{
+"game" : "game_name_5",
+"payoff" : 0,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_5",
+"status" : "FINISHED"
+},
+"game_id_6":
+{
+"game" : "game_name_6",
+"payoff" : 130,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_6",
+"status" : "FINISHED"
+},
+"game_id_7":
+{
+"game" : "game_name_7",
+"payoff" : 38,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_7",
+"status" : "FINISHED"
+},
+"game_id_8":
+{
+"game" : "game_name_8",
+"payoff" : 94,
+"periods" : 1,
+"playerFound" : 1,
+"sessionType" : "game_name_8",
+"status" : "FINISHED"
+}
+}

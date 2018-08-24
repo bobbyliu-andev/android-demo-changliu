@@ -16,8 +16,21 @@ import java.net.URL
 import java.util.concurrent.Executors
 
 class FragC : Fragment() {
+
+	companion object {
+		val instance by lazy {
+			FragC()
+		}
+	}
+
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+		if (instance.view != null) return instance.view
 		return inflater.inflate(R.layout.frag_c, container, false)
+	}
+
+	override fun onDestroyView() {
+		super.onDestroyView()
+		println("changerror-FragC destroyed")
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

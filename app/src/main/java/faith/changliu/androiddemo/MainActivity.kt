@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.GravityCompat
-import android.support.v4.view.ViewPager
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
@@ -20,10 +19,7 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
-	private val fragA by lazy { FragA() }
-	private val fragB by lazy { FragB() }
-	private val fragC by lazy { FragC() }
-	private val frags by lazy { listOf(fragA, fragB, fragC) }
+	private lateinit var frags: List<Fragment>
 	private val mSectionsPagerAdapter by lazy { SectionsPagerAdapter(supportFragmentManager) }
 
 	private val onPageChangeListener by lazy {
@@ -40,6 +36,12 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 		setSupportActionBar(toolbar)
+
+		frags = listOf(
+				FragA.instance,
+				FragB.instance,
+				FragC.instance
+		)
 
 		// init views
 		mPager.apply {
