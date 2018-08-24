@@ -4,15 +4,15 @@
     <item
         android:id="@+id/nav_1"
         android:icon="@drawable/ic_menu_gallery"
-        android:title="Gallery" />
+        android:title="@string/view_1" />
     <item
         android:id="@+id/nav_2"
         android:icon="@drawable/ic_menu_slideshow"
-        android:title="Slideshow" />
+        android:title="@string/view_2" />
 
     <item
         android:id="@+id/nav_3"
         android:icon="@drawable/ic_menu_send"
-        android:title="Send" />
+        android:title="@string/view_3" />
 
 </menu>

@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.frag_b.*
 
 class FragB : Fragment() {
 
-
 	companion object {
 		val instance: FragB by lazy { FragB() }
 	}
