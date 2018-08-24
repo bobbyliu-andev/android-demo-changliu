@@ -9,6 +9,8 @@
 
 ## Screenshots
 
+![ScreenRecord](https://i.imgur.com/E62tk6U.gif)
+
 ![Screenshot1](https://i.imgur.com/j79Gmq0m.png)
 ![Screenshot2](https://i.imgur.com/vQLkzcXm.png)
 
