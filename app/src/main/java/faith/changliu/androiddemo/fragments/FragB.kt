@@ -2,7 +2,6 @@ package faith.changliu.androiddemo.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,9 +19,7 @@ class FragB : Fragment() {
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-		val view = inflater.inflate(R.layout.frag_b, container, false)
-
-		return view
+		return inflater.inflate(R.layout.frag_b, container, false)
 	}
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

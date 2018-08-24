@@ -6,7 +6,6 @@ import android.support.annotation.StringRes
 import android.support.design.widget.Snackbar
 import android.view.View
 import faith.changliu.androiddemo.AppContext
-import faith.changliu.androiddemo.R
 
 /**
  * Check connectivity
