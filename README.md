@@ -1,6 +1,12 @@
 # **Android Demo**
 ![Logo](https://i.imgur.com/mHuQpVRt.png)
 
+## Download Instruction
+* Download apk file [HERE](https://goo.gl/WLUTWZ)
+* Scan QR with phone to install
+
+    ![QR](https://goo.gl/RM5C7o)
+
 ## Screenshots
 
 ![Screenshot1](https://i.imgur.com/j79Gmq0m.png)
