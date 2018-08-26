@@ -30,4 +30,4 @@ data class Test(
 		val description: String
 )
 
-class TestDataProvider(val data: List<Test>)
+class TestDataProvider(var data: List<Test> = listOf())

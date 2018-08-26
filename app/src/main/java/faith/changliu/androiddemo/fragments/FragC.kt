@@ -7,16 +7,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
 import faith.changliu.androiddemo.R
+import faith.changliu.androiddemo.data.Test
 import faith.changliu.androiddemo.data.TestDataProvider
 import faith.changliu.androiddemo.helpers.GET_URL
+import faith.changliu.androiddemo.helpers.getContentFromStringUrl
 import faith.changliu.androiddemo.helpers.isConnected
 import faith.changliu.androiddemo.helpers.snackbar
 import kotlinx.android.synthetic.main.frag_c.*
+import java.io.IOException
+import java.net.MalformedURLException
 import java.net.URL
 import java.util.concurrent.Executors
 
 class FragC : Fragment() {
 
+	// singleton
 	companion object {
 		val instance by lazy {
 			FragC()
@@ -42,27 +47,47 @@ class FragC : Fragment() {
 		}
 	}
 
+	/**
+	 * Async loading for test
+	 */
 	private fun loadTest() {
 		val executor = Executors.newCachedThreadPool()
+
+		// start loading
 		mLoadingTest.visibility = View.VISIBLE
 		mBtnGetData.isEnabled = false
 		executor.execute {
-			val dataString = URL(GET_URL).readText()
-			val tests = Gson().fromJson(dataString, TestDataProvider::class.java)
+			val dataString = getContentFromStringUrl(GET_URL)
+
 			activity?.runOnUiThread {
-				with(tests.data[0]) {
-					mTvName.text = className
-					mTvId.text = id.toString()
-					mTvClassDate.text = class_date
-					mTvTeacherId.text = teacher_id.toString()
-					mTvPrice.text = "$$price"
-					mTvStartTime.text = start_time
-					mTvEndTime.text = end_time
-					mTvDescription.text = description
+
+				if (dataString.isNotEmpty()) {
+					val tests = Gson().fromJson(dataString, TestDataProvider::class.java)
+					if (tests.data.isNotEmpty()) {
+						bindTestDataWithCardView(tests.data[0])
+					}
 				}
+
+				// reset views
 				mLoadingTest.visibility = View.GONE
 				mBtnGetData.isEnabled = true
 			}
+		}
+	}
+
+	/**
+	 * Bind CardView with data from Test object
+	 */
+	private fun bindTestDataWithCardView(test: Test) {
+		with(test) {
+			mTvName.text = className
+			mTvId.text = id.toString()
+			mTvClassDate.text = class_date
+			mTvTeacherId.text = teacher_id.toString()
+			mTvPrice.text = "$$price"
+			mTvStartTime.text = start_time
+			mTvEndTime.text = end_time
+			mTvDescription.text = description
 		}
 	}
 }

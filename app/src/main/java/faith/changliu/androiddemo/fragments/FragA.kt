@@ -23,7 +23,7 @@ class FragA : Fragment() {
 		val view = inflater.inflate(R.layout.frag_a, container, false)
 		view.mRcvGames.apply {
 			layoutManager = LinearLayoutManager(context)
-			val games = GameDataProvider.getGames()
+			val games = GameDataProvider.getGamesFromFakeData()
 			adapter = GamesAdapter(games)
 		}
 

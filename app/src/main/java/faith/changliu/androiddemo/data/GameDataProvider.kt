@@ -1,27 +1,31 @@
 package faith.changliu.androiddemo.data
 
 import faith.changliu.androiddemo.AppContext
+import faith.changliu.androiddemo.helpers.FILE_FAKE_DATA
+import faith.changliu.androiddemo.helpers.readStringFromAssets
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 
 object GameDataProvider {
 
-	private fun getGamesJsonString(): String {
-		var result = ""
-		try {
-			AppContext.assets.open("fakeData.json").bufferedReader().use { bufferedReader ->
-				result = bufferedReader.readText()
-			}
-		} catch (ex: IOException) {
-			ex.printStackTrace()
-		} catch (ex: Exception) {
-			ex.printStackTrace()
-		}
-
-		return result
+	/**
+	 * Get games from fake data
+	 *
+	 * @param fileName Name of the file to be read inside assets, default to fakeData.json
+	 */
+	fun getGamesFromFakeData(fileName: String = FILE_FAKE_DATA): ArrayList<Game> {
+		val jsonString = readStringFromAssets(fileName)
+		return convertStringToGames(jsonString)
 	}
 
+	/**
+	 * Try convert JSON string to games list
+	 *
+	 * @param jsonString String input
+	 *
+	 * @return Returns a new ArrayList<Game>
+	 */
 	private fun convertStringToGames(jsonString: String): ArrayList<Game> {
 		val result = arrayListOf<Game>()
 		try {
@@ -38,10 +42,5 @@ object GameDataProvider {
 		}
 
 		return result
-	}
-
-	fun getGames(): ArrayList<Game> {
-		val jsonString = getGamesJsonString()
-		return convertStringToGames(jsonString)
 	}
 }
