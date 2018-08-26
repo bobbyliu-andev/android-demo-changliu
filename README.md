@@ -2,10 +2,10 @@
 ![Logo](https://i.imgur.com/mHuQpVRt.png)
 
 ## Download Instruction
-* Download apk file [HERE](https://goo.gl/WLUTWZ)
-* Scan QR with phone to install
+* Proguard apk file [HERE](https://goo.gl/EMCohj)
+* Scan QR code with phone to download
 
-    ![QR](https://goo.gl/RM5C7o)
+    ![QR2](https://goo.gl/WmrLr2)
 
 ## Screenshots
 
@@ -22,6 +22,7 @@
 * CardView
 * Gson
 * Kotlin and Kotlinx
+* Proguard
 
 ## License
 Open source under [MIT](https://opensource.org/licenses/MIT) license rights and limitations.
