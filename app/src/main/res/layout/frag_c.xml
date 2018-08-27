@@ -7,91 +7,37 @@
 
     <Button
         android:id="@+id/mBtnGetData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Load File"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mCvDisplay" />
-
-    <android.support.v7.widget.CardView
-        android:id="@+id/mCvDisplay"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/colorPrimary"
+        android:text="@string/load_file"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ProgressBar
-            android:id="@+id/mLoadingTest"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+    <ProgressBar
+        android:id="@+id/mLoadingTest"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/mRcvTests"
+        app:layout_constraintEnd_toEndOf="@+id/mRcvTests"
+        app:layout_constraintStart_toStartOf="@+id/mRcvTests"
+        app:layout_constraintTop_toTopOf="@+id/mRcvTests" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRcvTests"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mBtnGetData" />
 
-            <TextView
-                android:id="@+id/mTvId"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mTvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/Text" />
-
-            <TextView
-                android:id="@+id/mTvTeacherId"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mTvPrice"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mTvStartTime"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mTvEndTime"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mTvClassDate"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/mTvDescription"
-                style="@style/Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>

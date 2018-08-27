@@ -2,11 +2,13 @@ package faith.changliu.androiddemo.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
 import faith.changliu.androiddemo.R
+import faith.changliu.androiddemo.adapters.TestsAdapter
 import faith.changliu.androiddemo.data.Test
 import faith.changliu.androiddemo.data.TestDataProvider
 import faith.changliu.androiddemo.helpers.*
@@ -15,8 +17,8 @@ import java.util.concurrent.Executors
 
 class FragC : Fragment() {
 	
-	// keep track if data is loaded
-	private var mTest: Test? = null
+	// adapter for tests
+	private val mAdapter = TestsAdapter(arrayListOf())
 	
 	// singleton
 	companion object {
@@ -30,13 +32,11 @@ class FragC : Fragment() {
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
 		
-		// bind view if data exists
-		mTest?.let {
-			bindTestDataWithCardView(it)
-		}
+		// init recycler view
+		mRcvTests.layoutManager = LinearLayoutManager(context)
+		mRcvTests.adapter = mAdapter
 		
 		mBtnGetData.setOnClickListener { v ->
-			// check connectivity
 			v.onConnected {
 				loadTest()
 			}
@@ -47,6 +47,7 @@ class FragC : Fragment() {
 	 * Async loading for test
 	 */
 	private fun loadTest() {
+		// get background thread
 		val executor = Executors.newCachedThreadPool()
 		
 		// start loading
@@ -63,18 +64,7 @@ class FragC : Fragment() {
 					
 					// check if http exception exists
 					onNoHttpError(tests.code) {
-						
-						// check if Test instance exists
-						if (tests.data.isNotEmpty()) {
-							tests.data[0].let {
-								mTest = it
-								
-								bindTestDataWithCardView(it)
-								mCvDisplay.snackbar(tests.message + ", Total: ${tests.total}")
-							}
-						} else {
-							mCvDisplay.snackbar(R.string.no_data)
-						}
+						mAdapter.updateAllData(tests.data)
 					}
 				}
 				
@@ -91,14 +81,14 @@ class FragC : Fragment() {
 	 */
 	private fun bindTestDataWithCardView(test: Test) {
 		with(test) {
-			mTvName.text = className
-			mTvId.text = id.toString()
-			mTvClassDate.text = class_date
-			mTvTeacherId.text = teacher_id.toString()
-			mTvPrice.text = "$$price"
-			mTvStartTime.text = start_time
-			mTvEndTime.text = end_time
-			mTvDescription.text = description
+//			mTvName.text = className
+//			mTvId.text = id.toString()
+//			mTvClassDate.text = class_date
+//			mTvTeacherId.text = teacher_id.toString()
+//			mTvPrice.text = "$$price"
+//			mTvStartTime.text = start_time
+//			mTvEndTime.text = end_time
+//			mTvDescription.text = description
 		}
 	}
 }
