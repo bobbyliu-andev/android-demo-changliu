@@ -19,15 +19,20 @@ data class Game(
 }
 
 data class Test(
-		val id: Int,
+		val id: Int = 0,
 		@SerializedName("class_name")
-		val className: String,
-		val teacher_id: Int,
-		val price: Double,
-		val start_time: String,
-		val end_time: String,
-		val class_date: String,
-		val description: String
+		val className: String = "N/A",
+		val teacher_id: Int = 0,
+		val price: Double = 0.0,
+		val start_time: String = "N/A",
+		val end_time: String = "N/A",
+		val class_date: String = "N/A",
+		val description: String = "N/A",
+		// added fields
+		val elementary: Int = 0,
+		val start_date: String = "N/A",
+		val end_date: String = "N/A",
+		val week_day: Int = 0
 )
 
 class TestDataProvider(

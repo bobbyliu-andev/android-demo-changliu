@@ -1,11 +1,9 @@
 package faith.changliu.androiddemo.data
 
-import faith.changliu.androiddemo.AppContext
 import faith.changliu.androiddemo.helpers.FILE_FAKE_DATA
 import faith.changliu.androiddemo.helpers.readStringFromAssets
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.IOException
 
 object GameDataProvider {
 

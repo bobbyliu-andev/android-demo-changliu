@@ -9,6 +9,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import faith.changliu.androiddemo.R
+import faith.changliu.androiddemo.helpers.onConnected
 import kotlinx.android.synthetic.main.frag_b.*
 
 class FragB : Fragment() {
@@ -49,7 +50,10 @@ class FragB : Fragment() {
 		mBtnLoadUrl.setOnClickListener {
 			mEtUrlInputLayout.clearFocus()
 			val url = mEtUrlInput.text.toString()
-			webView.loadUrl(url)
+			// load website if connected
+			webView.onConnected {
+				webView.loadUrl(url)
+			}
 		}
 	}
 }
