@@ -35,6 +35,7 @@ class FragC : Fragment() {
 		// init recycler view
 		mRcvTests.layoutManager = LinearLayoutManager(context)
 		mRcvTests.adapter = mAdapter
+		updateEmptyView()
 		
 		mBtnGetData.setOnClickListener { v ->
 			v.onConnected {
@@ -65,6 +66,7 @@ class FragC : Fragment() {
 					// check if http exception exists
 					onNoHttpError(tests.code) {
 						mAdapter.updateAllData(tests.data)
+						updateEmptyView()
 					}
 				}
 				
@@ -76,19 +78,13 @@ class FragC : Fragment() {
 	}
 	
 	/**
-	 * Bind CardView with data from Test object
-	 * @param test Data to be bound
+	 * Prompt user when no data displays
 	 */
-	private fun bindTestDataWithCardView(test: Test) {
-		with(test) {
-//			mTvName.text = className
-//			mTvId.text = id.toString()
-//			mTvClassDate.text = class_date
-//			mTvTeacherId.text = teacher_id.toString()
-//			mTvPrice.text = "$$price"
-//			mTvStartTime.text = start_time
-//			mTvEndTime.text = end_time
-//			mTvDescription.text = description
+	fun updateEmptyView() {
+		if (mAdapter.itemCount == 0) {
+			mTvEmpty.visibility = View.VISIBLE
+		} else {
+			mTvEmpty.visibility = View.GONE
 		}
 	}
 }
