@@ -2,10 +2,10 @@
 ![Logo](https://i.imgur.com/mHuQpVRt.png)
 
 ## Download Instruction
-* Proguard apk file [HERE](https://goo.gl/EMCohj)
+* Proguard apk file [HERE](https://goo.gl/GuSzXj)
 * Scan QR code with phone to download
 
-    ![QR2](https://goo.gl/WmrLr2)
+    ![QR2](https://goo.gl/Y9p4Fb)
 
 ## Screenshots
 
