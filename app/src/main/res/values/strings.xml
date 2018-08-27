@@ -9,4 +9,7 @@
     <string name="view_3">Card</string>
     <string name="view_2">YouTube</string>
     <string name="view_1">Games</string>
+    <string name="website_url">Website URL</string>
+    <string name="default_url">https://www.youtube.com</string>
+    <string name="go">Go</string>
 </resources>

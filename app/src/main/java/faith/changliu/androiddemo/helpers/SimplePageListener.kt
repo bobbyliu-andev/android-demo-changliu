@@ -2,6 +2,9 @@ package faith.changliu.androiddemo.helpers
 
 import android.support.v4.view.ViewPager
 
+/**
+ * Page listener with default empty implementation for ViewPager.OnPageChangeListener
+ */
 class SimplePageListener(private val onSelectPage: (Int) -> Unit) : ViewPager.OnPageChangeListener {
 	override fun onPageScrollStateChanged(state: Int) {}
 

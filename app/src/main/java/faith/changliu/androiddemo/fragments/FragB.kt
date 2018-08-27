@@ -23,7 +23,11 @@ class FragB : Fragment() {
 
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
+
+		// allow webView to load websites using javascript
 		webView.settings.javaScriptEnabled = true
+
+		// keep track of the loading process
 		webView.webChromeClient = object : WebChromeClient() {
 			override fun onProgressChanged(view: WebView?, newProgress: Int) {
 				super.onProgressChanged(view, newProgress)
@@ -37,10 +41,13 @@ class FragB : Fragment() {
 
 			}
 		}
+
+		// keep website loading in app
 		webView.webViewClient = object : WebViewClient() {}
 
+		// load input url
 		mBtnLoadUrl.setOnClickListener {
-			mEtUrlInput.clearFocus()
+			mEtUrlInputLayout.clearFocus()
 			val url = mEtUrlInput.text.toString()
 			webView.loadUrl(url)
 		}
