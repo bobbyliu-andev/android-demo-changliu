@@ -31,6 +31,14 @@ fun View.snackbar(@StringRes resId: Int) {
 }
 
 /**
+ * Display snackbar with string
+ * @param msg Display message
+ */
+fun View.snackbar(msg: String) {
+	Snackbar.make(this, msg, Snackbar.LENGTH_LONG).show()
+}
+
+/**
  * Download file from URL and output as string. Handles exceptions
  *
  * @return Content downloaded from URL. Return an empty string if exceptions caught

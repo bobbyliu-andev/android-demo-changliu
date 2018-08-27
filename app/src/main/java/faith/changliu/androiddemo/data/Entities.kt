@@ -30,4 +30,9 @@ data class Test(
 		val description: String
 )
 
-class TestDataProvider(var data: List<Test> = listOf())
+class TestDataProvider(
+		val code: Int = 0,
+		var data: List<Test> = listOf(),
+		val message: String = "",
+		val total: Int = 0
+)

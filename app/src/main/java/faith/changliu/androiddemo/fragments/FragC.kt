@@ -61,13 +61,25 @@ class FragC : Fragment() {
 				if (dataString.isNotEmpty()) {
 					// convert json to Test instance
 					val tests = Gson().fromJson(dataString, TestDataProvider::class.java)
-					// check if Test instance exists
-					if (tests.data.isNotEmpty()) {
-						tests.data[0].let {
-							mTest = it
-							bindTestDataWithCardView(it)
+
+					// check if http exception exists
+					if (tests.code in 200..299) {
+						// check if Test instance exists
+						if (tests.data.isNotEmpty()) {
+							tests.data[0].let {
+								mTest = it
+								bindTestDataWithCardView(it)
+								mCvDisplay.snackbar(tests.message + ", Total: ${tests.total}")
+							}
+						} else {
+							// no data
+							mCvDisplay.snackbar(R.string.no_data)
 						}
+					} else {
+						mCvDisplay.snackbar(R.string.download_failed)
 					}
+				} else {
+					mCvDisplay.snackbar(R.string.download_failed)
 				}
 
 				// reset views
