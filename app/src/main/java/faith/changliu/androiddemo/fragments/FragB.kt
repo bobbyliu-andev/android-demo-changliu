@@ -9,7 +9,8 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import faith.changliu.androiddemo.R
-import faith.changliu.androiddemo.helpers.onConnected
+import faith.changliu.androiddemo.helpers.CommonUtils
+import faith.changliu.androiddemo.helpers.DownloadUtils
 import kotlinx.android.synthetic.main.frag_b.*
 
 class FragB : Fragment() {
@@ -47,12 +48,14 @@ class FragB : Fragment() {
 		webView.webViewClient = object : WebViewClient() {}
 
 		// load input url
-		mBtnLoadUrl.setOnClickListener {
+		mBtnLoadUrl.setOnClickListener {v ->
 			mEtUrlInputLayout.clearFocus()
 			val url = mEtUrlInput.text.toString()
 			// load website if connected
-			webView.onConnected {
+			if (DownloadUtils.isConnected()) {
 				webView.loadUrl(url)
+			} else {
+				CommonUtils.snackbar(v, "No internet")
 			}
 		}
 	}

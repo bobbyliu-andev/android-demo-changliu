@@ -1,7 +1,8 @@
 package faith.changliu.androiddemo.data
 
+import faith.changliu.androiddemo.AppContext
+import faith.changliu.androiddemo.helpers.CommonUtils
 import faith.changliu.androiddemo.helpers.FILE_FAKE_DATA
-import faith.changliu.androiddemo.helpers.readStringFromAssets
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -13,7 +14,7 @@ object GameDataProvider {
 	 * @param fileName Name of the file to be read inside assets, default to fakeData.json
 	 */
 	fun getGamesFromFakeData(fileName: String = FILE_FAKE_DATA): ArrayList<Game> {
-		val jsonString = readStringFromAssets(fileName)
+		val jsonString = CommonUtils.readStringFromAssets(AppContext.instance, fileName)
 		return convertStringToGames(jsonString)
 	}
 
