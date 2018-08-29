@@ -14,22 +14,19 @@ import faith.changliu.androiddemo.fragments.FragA
 import faith.changliu.androiddemo.fragments.FragB
 import faith.changliu.androiddemo.fragments.FragC
 import faith.changliu.androiddemo.helpers.SimplePageListener
+import faith.changliu.androiddemo.helpers.SimplePageListenerJava
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
+		BottomNavigationView.OnNavigationItemSelectedListener,
+		SimplePageListenerJava.PageChangeCallback {
 
 	private lateinit var frags: List<Fragment>
 	private val mSectionsPagerAdapter by lazy { SectionsPagerAdapter(supportFragmentManager) }
 
 	private val onPageChangeListener by lazy {
-		SimplePageListener { position ->
-			when (position) {
-				0 -> mNavBottom.selectedItemId =  R.id.nav_1
-				1 -> mNavBottom.selectedItemId =  R.id.nav_2
-				2 -> mNavBottom.selectedItemId =  R.id.nav_3
-			}
-		}
+		SimplePageListenerJava(this)
 	}
 
 	override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +60,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 			drawer_layout.closeDrawer(GravityCompat.START)
 		} else {
 			super.onBackPressed()
+		}
+	}
+
+	override fun onSelectPage(position: Int) {
+		when (position) {
+			0 -> mNavBottom.selectedItemId =  R.id.nav_1
+			1 -> mNavBottom.selectedItemId =  R.id.nav_2
+			2 -> mNavBottom.selectedItemId =  R.id.nav_3
 		}
 	}
 
