@@ -35,7 +35,6 @@ public final class FragC extends Fragment implements View.OnClickListener {
 
 	// member vars
 	private TestsAdapter mAdapter;
-	private ConnectivityManager cm;
 
 	public void setAdapter(TestsAdapter mAdapter) {
 		this.mAdapter = mAdapter;
@@ -58,7 +57,6 @@ public final class FragC extends Fragment implements View.OnClickListener {
 	@Override
 	public void onAttach(Context context) {
 		super.onAttach(context);
-		cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 	}
 
 	@Nullable
@@ -88,7 +86,7 @@ public final class FragC extends Fragment implements View.OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.mBtnGetData:
-				if (DownloadUtils.isConnected(cm)) {
+				if (DownloadUtils.isConnected()) {
 					loadTest();
 				} else {
 					showSnackBar(R.string.no_internet);

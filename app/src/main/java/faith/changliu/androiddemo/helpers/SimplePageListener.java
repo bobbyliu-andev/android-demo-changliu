@@ -2,9 +2,9 @@ package faith.changliu.androiddemo.helpers;
 
 import android.support.v4.view.ViewPager;
 
-public class SimplePageListenerJava implements ViewPager.OnPageChangeListener {
+public class SimplePageListener implements ViewPager.OnPageChangeListener {
 
-	public SimplePageListenerJava(PageChangeCallback mListener) {
+	public SimplePageListener(PageChangeCallback mListener) {
 		this.mListener = mListener;
 	}
 
