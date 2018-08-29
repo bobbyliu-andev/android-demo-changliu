@@ -9,9 +9,9 @@ public class Game {
 	private int payoff;
 	private String status;
 
-	private final String KEY_GAME = "faith.changliu.key.game";
-	private final String KEY_PAYOFF = "faith.changliu.key.payoff";
-	private final String KEY_STATUS = "faith.changliu.key.status";
+	private final String KEY_GAME = "game";
+	private final String KEY_PAYOFF = "payoff";
+	private final String KEY_STATUS = "status";
 
 	public Game() {
 		game = "";
