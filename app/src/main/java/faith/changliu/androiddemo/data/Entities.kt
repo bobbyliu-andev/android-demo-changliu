@@ -1,6 +1,6 @@
 package faith.changliu.androiddemo.data
 
-import com.google.gson.annotations.SerializedName
+import faith.changliu.androiddemo.data.entities.Test
 import faith.changliu.androiddemo.helpers.KEY_GAME
 import faith.changliu.androiddemo.helpers.KEY_PAYOFF
 import faith.changliu.androiddemo.helpers.KEY_STATUS
@@ -17,23 +17,6 @@ data class Game(
 		status = (jsonObject[KEY_STATUS] as? String) ?: "N/A"
 	}
 }
-
-data class Test(
-		val id: Int = 0,
-		@SerializedName("class_name")
-		val className: String = "N/A",
-		val teacher_id: Int = 0,
-		val price: Double = 0.0,
-		val start_time: String = "N/A",
-		val end_time: String = "N/A",
-		val class_date: String = "N/A",
-		val description: String = "N/A",
-		// added fields
-		val elementary: Int = 0,
-		val start_date: String = "N/A",
-		val end_date: String = "N/A",
-		val week_day: Int = 0
-)
 
 class TestDataProvider(
 		val code: Int = 0,

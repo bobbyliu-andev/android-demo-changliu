@@ -22,8 +22,8 @@ import java.util.concurrent.Executors;
 
 import faith.changliu.androiddemo.R;
 import faith.changliu.androiddemo.adapters.TestsAdapter;
-import faith.changliu.androiddemo.data.Test;
 import faith.changliu.androiddemo.data.TestDataProvider;
+import faith.changliu.androiddemo.data.entities.Test;
 import faith.changliu.androiddemo.helpers.CommonUtils;
 import faith.changliu.androiddemo.helpers.ConstantsKt;
 import faith.changliu.androiddemo.helpers.DownloadUtils;
