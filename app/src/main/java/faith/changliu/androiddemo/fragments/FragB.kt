@@ -1,5 +1,7 @@
 package faith.changliu.androiddemo.fragments
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +19,11 @@ class FragB : Fragment() {
 
 	companion object {
 		val instance: FragB by lazy { FragB() }
+
+	}
+
+	private val cm: ConnectivityManager by lazy {
+		context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 	}
 
 	override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,7 +59,7 @@ class FragB : Fragment() {
 			mEtUrlInputLayout.clearFocus()
 			val url = mEtUrlInput.text.toString()
 			// load website if connected
-			if (DownloadUtils.isConnected()) {
+			if (DownloadUtils.isConnected(cm)) {
 				webView.loadUrl(url)
 			} else {
 				CommonUtils.snackbar(v, "No internet")

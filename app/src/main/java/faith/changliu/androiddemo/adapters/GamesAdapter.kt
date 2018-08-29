@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import faith.changliu.androiddemo.R
-import faith.changliu.androiddemo.data.Game
+import faith.changliu.androiddemo.data.entities.Game
 import kotlinx.android.synthetic.main.cell_game.view.*
 
 class GamesAdapter(private val games: ArrayList<Game>) : RecyclerView.Adapter<GamesAdapter.ViewHolder>() {

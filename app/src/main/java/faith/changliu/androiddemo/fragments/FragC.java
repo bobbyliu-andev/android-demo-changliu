@@ -1,5 +1,7 @@
 package faith.changliu.androiddemo.fragments;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,16 +24,18 @@ import java.util.concurrent.Executors;
 
 import faith.changliu.androiddemo.R;
 import faith.changliu.androiddemo.adapters.TestsAdapter;
-import faith.changliu.androiddemo.data.TestDataProvider;
 import faith.changliu.androiddemo.data.entities.Test;
+import faith.changliu.androiddemo.data.entities.TestDataProvider;
 import faith.changliu.androiddemo.helpers.CommonUtils;
-import faith.changliu.androiddemo.helpers.ConstantsKt;
 import faith.changliu.androiddemo.helpers.DownloadUtils;
 
 public final class FragC extends Fragment implements View.OnClickListener {
 
+	public static final String GET_URL = "https://www.plustutedu.com/api/getclasses";
+
 	// member vars
 	private TestsAdapter mAdapter;
+	private ConnectivityManager cm;
 
 	public void setAdapter(TestsAdapter mAdapter) {
 		this.mAdapter = mAdapter;
@@ -49,6 +53,12 @@ public final class FragC extends Fragment implements View.OnClickListener {
 		FragC fragC = new FragC();
 		fragC.setAdapter(new TestsAdapter(new ArrayList<Test>()));
 		return fragC;
+	}
+
+	@Override
+	public void onAttach(Context context) {
+		super.onAttach(context);
+		cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 	}
 
 	@Nullable
@@ -78,7 +88,7 @@ public final class FragC extends Fragment implements View.OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 			case R.id.mBtnGetData:
-				if (DownloadUtils.isConnected()) {
+				if (DownloadUtils.isConnected(cm)) {
 					loadTest();
 				} else {
 					showSnackBar(R.string.no_internet);
@@ -94,7 +104,7 @@ public final class FragC extends Fragment implements View.OnClickListener {
 		mBtnGetData.setEnabled(false);
 		executor.execute((new Runnable() {
 			public final void run() {
-				final String dataString = CommonUtils.getContentFromStringUrl(ConstantsKt.GET_URL);
+				final String dataString = CommonUtils.getContentFromStringUrl(GET_URL);
 				if (getActivity() == null) return;
 				getActivity().runOnUiThread((new Runnable() {
 					public final void run() {
