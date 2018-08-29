@@ -1,6 +1,11 @@
 # **Android Demo**
 ![Logo](https://i.imgur.com/mHuQpVRt.png)
 
+## Overview
+This branch, **java-branch**, is written in Java.
+
+Checkout to **master** branch for a Kotlin version.
+
 ## Download Instruction
 * Proguard apk file [HERE](https://goo.gl/GuSzXj)
 * Scan QR code with phone to download
