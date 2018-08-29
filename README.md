@@ -6,6 +6,17 @@
 * Scan QR code with phone to download
 
     ![QR2](https://goo.gl/Y9p4Fb)
+    
+## Overview
+
+This branch, **master**, is written in Kotlin.
+
+Checkout to **java-branch** for a Java version using the following command:
+
+```
+    git checkout java-branch 
+```
+
 
 ## Screenshots
 
