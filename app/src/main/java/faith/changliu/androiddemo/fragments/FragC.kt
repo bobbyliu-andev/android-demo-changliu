@@ -66,6 +66,7 @@ class FragC : Fragment() {
 					// check if http exception exists
 					onNoHttpError(tests.code) {
 						mAdapter.updateAllData(tests.data)
+						mBtnGetData.snackbar("${tests.message}, total: ${tests.total}")
 						updateEmptyView()
 					}
 				}
