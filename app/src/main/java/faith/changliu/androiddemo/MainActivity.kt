@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 		frags = listOf(
 				FragA.instance,
 				FragB.instance,
-				FragC.instance
+				FragC.newInstance()
 		)
 
 		// init views
